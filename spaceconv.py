@@ -13,6 +13,12 @@ CONVERSIONS = {
         "earth radius": 6_371.0,
         "light_minute": 17_987_547.48
     },
+    "speed": { # base unit: km/s
+        "km/s": 1.0,
+        "m/s": 0.001,
+        "km/h": 1 / 3600,
+        "au/day": 149_597_870.7 / 86_400,
+    },
 }
 
 
