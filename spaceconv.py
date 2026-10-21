@@ -1,4 +1,9 @@
-"""spaceconv - a unit converter for space-weather and solar wind quantities."""
+"""spaceconv - a unit converter for space-weather and solar wind quantities.
+
+Usage examples:
+    python spaceconv.py 450 km/s au/day
+    python spaceconv.py --list
+"""
 
 import argparse
 import sys
