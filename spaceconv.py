@@ -1,5 +1,8 @@
 """spaceconv - a unit converter for space-weather and solar wind quantities."""
 
+import argparse
+import sys
+
 # Each category maps a unit name to how many base units one of that unit equals.
 # Converting is then just value * factor[from_unit] / factor[to_unit]
 CONVERSIONS = {
@@ -35,3 +38,26 @@ def convert(value, from_unit, to_unit):
 
     units = CONVERSIONS[from_category]
     return value * units[from_unit] / units[to_unit]
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Convert space weather and solar wind units."
+    )
+    parser.add_argument("value", type=float, help="number to convert")
+    parser.add_argument("from_unit", help="unit to convert from")
+    parser.add_argument("to_unit", help="unit to convert to")
+    args = parser.parse_args()
+
+    try:
+        result = convert(args.value, args.from_unit, args.to_unit)
+    except ValueError as error:
+        print(f"Error: {error}", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"{args.value:g} {args.from_unit} = {result:.6g} {args.to_unit}")
+
+
+if __name__ == "__main__":
+    main()
+
