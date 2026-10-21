@@ -19,6 +19,11 @@ CONVERSIONS = {
         "km/h": 1 / 3600,
         "au/day": 149_597_870.7 / 86_400,
     },
+    "magnetic_field": { # base unit: nT (nanotesla)
+        "nT": 1.0,
+        "T": 1e9,
+        "gauss": 1e5,
+    },
 }
 
 
