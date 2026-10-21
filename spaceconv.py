@@ -28,6 +28,11 @@ CONVERSIONS = {
         "per_cm3": 1.0,
         "per_m3": 1e-6,
     },
+    "temperature": { # base unit: kelvin (plasma temperature)
+        "K": 1.0,
+        "MK": 1e6,
+        "eV": 11_604.518,
+    },
 }
 
 
