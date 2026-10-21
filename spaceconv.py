@@ -24,6 +24,10 @@ CONVERSIONS = {
         "T": 1e9,
         "gauss": 1e5,
     },
+    "density": { # base unit: particles per cubic centimeter
+        "per_cm3": 1.0,
+        "per_m3": 1e-6,
+    },
 }
 
 
