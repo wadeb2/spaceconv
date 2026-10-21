@@ -24,6 +24,11 @@ CONVERSIONS = {
         "T": 1e9,
         "gauss": 1e5,
     },
+    "temperature": { # base unit: kelvin (plasma temperature)
+        "K": 1.0,
+        "MK": 1e6,
+        "eV": 11_604.518,
+    },
 }
 
 
