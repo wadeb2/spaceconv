@@ -60,14 +60,28 @@ def convert(value, from_unit, to_unit):
     return value * units[from_unit] / units[to_unit]
 
 
+def list_units():
+    """Print every supported unit, grouped by category."""
+    for category, units in CONVERSIONS.items():
+        print(f"{category}: {', '.join(units)}")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Convert space weather and solar wind units."
     )
-    parser.add_argument("value", type=float, help="number to convert")
-    parser.add_argument("from_unit", help="unit to convert from")
-    parser.add_argument("to_unit", help="unit to convert to")
+    parser.add_argument("value", type=float, nargs="?", help="number to convert")
+    parser.add_argument("from_unit", nargs="?", help="unit to convert from")
+    parser.add_argument("to_unit", nargs="?", help="unit to convert to")
+    parser.add_argument("--list", action="store_true", help="list all supported units")
     args = parser.parse_args()
+
+    if args.list:
+        list_units()
+        return
+
+    if args.to_unit is None:
+        parser.error("please give a value, a from_unit, and a to_unit")
 
     try:
         result = convert(args.value, args.from_unit, args.to_unit)
